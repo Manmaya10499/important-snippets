@@ -1,0 +1,12 @@
+// GetElement() + getED()
+
+var grInc = new GlideRecord('incident');
+grInc.setLimit(1);
+grInc.query();
+
+if (grInc.next()) {
+    gs.print(grInc.getDisplayValue());
+    //to get the field type, it doesn't return anything.
+    var element = grInc.getElement('cmdb_ci').getED().getInternalType();
+    gs.print("elementDescriptor: " + element);
+}
