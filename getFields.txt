@@ -1,0 +1,30 @@
+It basically gives you metadata about all the fields that are there in the table of that GlideRecird class.
+We can't use it directly though, we have to use.get(index) to get the individual field
+then the returned object.getED()
+
+and then we can use methods like getName(). getInternalType() etc.
+
+
+P.S - .size() to be used instead of .length()
+
+
+//Array.from can create a new array magically
+// ex:
+
+var grUser = new GlideRecord('sys_user');
+grUser.get('name', 'admin');
+
+// To get the metadata about the fields : getFields()
+var userFields = grUser.getFields();
+
+//to get the info about individual field : get(index)
+for (i = 0; i < userFields.size(); i++) { //.size() to be used in stead of .length
+    var field = userFields.get(i);
+    // To get the metadata about that particular field :getED()
+
+    var fieldDesc = field.getED();
+    //now we apply the necessary methods to obtain specific info about those fields : getName(). getInternalType() etc
+
+    gs.info("field Name - " + fieldDesc.getName() + " - " + "field Type -" + fieldDesc.getInternalType());
+
+}
