@@ -1,0 +1,13 @@
+/*
+
+2 types of password fields are there, one way encrypted and 2 way encrypted.
+One way enctypted can't be decrypted using GlideEncrypter
+two way encryopted can.
+
+the password on the user table is a one way encrypted field.
+
+*/
+var grEnc = new GlideEncrypter();
+var encryptedString = grEnc.encrypt('abcxyz123');
+var decryptedString = grEnc.decrypt(encryptedString);
+gs.print(decryptedString);
