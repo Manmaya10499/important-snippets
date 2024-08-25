@@ -1,0 +1,2 @@
+// Returns an array of fields that are editable on the form.
+g_form.getEditableFields();
